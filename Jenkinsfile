@@ -2,16 +2,19 @@ pipeline {
     agent any
 
     stages {
-        stage('test') {
+        stage('Build') {
             steps {
                 echo 'Building..'
-                sh 'pwd'
-                sh './gradlew build -x test'
             }
         }
-        stage('build') {
+        stage('Test') {
             steps {
-                sh './gradlew test'
+                echo 'Testing..'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
             }
         }
     }
